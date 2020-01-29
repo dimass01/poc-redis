@@ -1,0 +1,10 @@
+# Learn more about services, parameters and containers at
+# https://symfony.com/doc/current/service_container.html
+parameters:
+    app.controller.redis.class: AppBundle\Controller\RedisController
+
+services:
+    app.controller.redis:
+        class: '%app.controller.redis.class%'
+        arguments:
+            - "@app.util.redis_helper"

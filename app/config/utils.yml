@@ -1,0 +1,14 @@
+# Learn more about services, parameters and containers at
+# https://symfony.com/doc/current/service_container.html
+parameters:
+    app.util.redis_helper.class: AppBundle\Util\RedisHelper
+    redis.host: 127.0.0.1
+    redis.port: 6379
+
+services:
+    app.util.redis_helper:
+        class: '%app.util.redis_helper.class%'
+        arguments:
+            - "@service_container"
+            - '%redis.host%'
+            - '%redis.port%'
